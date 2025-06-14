@@ -8,7 +8,7 @@
     "postinstall": "npm install -g pm2"
   },
   "keywords": [],
-  "author": "Phaticusthiccy",
+  "author": "Vishnu Prasad",
   "license": "ISC",
   "dependencies": {
     "@distube/ytdl-core": "^4.15.9",
