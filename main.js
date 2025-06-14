@@ -1,3 +1,6 @@
+// Thanks to Thiccy and Yusuf Utsa for making this project
+//managed by VISHNU PRASAD based on Baileys
+
 const Module = require('module');
 const originalRequire = Module.prototype.require;
 const execSync = require('child_process').execSync;
@@ -44,7 +47,7 @@ setInterval(async () => {
   fs.writeFileSync("./database.json", JSON.stringify(global.database, null, 2));
   versionCheckInterval--
   if (versionCheckInterval <= 0) {
-    var getLatestCommit = await axios.get("https://api.github.com/repos/phaticusthiccy/PrimonProto/commits")
+    var getLatestCommit = await axios.get("https://api.github.com/repos/vishnu-xml/pinky-proto/commits")
 
     if (currentVersion == "") {
       currentVersion = getLatestCommit.data[0].sha
@@ -73,7 +76,7 @@ const logger = pino({
   },
 });
 
-async function Primon() {
+async function Pinky() {
   const { version } = await fetchLatestBaileysVersion();
   const { state, saveCreds  } = await useMultiFileAuthState(__dirname + "/session/");
 
@@ -92,7 +95,7 @@ async function Primon() {
       const shouldReconnect = (lastDisconnect.error.output.statusCode !== 401);
       if (shouldReconnect) {
         console.log('Disconnected, reconnecting...');
-        Primon();
+        Pinky();
       } else {
         console.log('QR code was not scanned.');
       }
@@ -101,7 +104,7 @@ async function Primon() {
       const usrId = sock.user.id;
       const mappedId = usrId.split(':')[0] + `@s.whatsapp.net`;
       if (!global.similarity) global.similarity = await import('string-similarity-js');
-      await sock.sendMessage(mappedId, { text: "_Primon Online!_\n\n_Use_ ```" + global.handlers[0] + "menu``` _to see the list of commands._" });;
+      await sock.sendMessage(mappedId, { text: "_Pinky is connected to your Whatsapp!_\n\n_Use_ ```" + global.handlers[0] + "menu``` _to see the list of commands._" });;
     }
   });
 
@@ -186,7 +189,7 @@ async function Primon() {
 
     } catch (error) {
       console.log(error);
-      await sock.sendMessage(sock.user.id, { text: `*⚠️ Primon Error:*\n${error}` });
+      await sock.sendMessage(sock.user.id, { text: `*⚠️ Pinky Damn, Error in Pinky:*\n${error}` });
     }
   });
 
@@ -252,7 +255,7 @@ function loadModules(modulePath, logger = true, refresh = false) {
   });
 }
 global.loadModules = loadModules;
-Primon();
+Pinky();
 
 /**
  * Downloads media from a WhatsApp message and saves it to the specified file path.
