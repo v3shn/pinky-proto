@@ -9,6 +9,6 @@ addCommand({pattern: "^ping$", access: "all", desc: "_Meter the response time of
     const responseTime = Date.now() - startTime;
     const emoji = responseTime < 200 ? "⚡" : (responseTime < 400 ? "⏳" : "⚠️");
     const editKey = msg.key.fromMe ? msg.key : publicMessage.key;
-    await sock.sendMessage(msg.key.remoteJid, { text: `_${emoji} Pong!_\n\n_Response time: ${responseTime}ms_`, edit: editKey });
+    await sock.sendMessage(msg.key.remoteJid, { text: `${emoji} Jitter!\n\nResponse time: ${responseTime}ms`, edit: editKey });
     return;
 })
