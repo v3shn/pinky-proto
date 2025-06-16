@@ -69,7 +69,7 @@ async function genQR(qr) {
       qrcode.generate(qrCode, { small: true });
     }
     if (connection === "connecting") {
-      console.log("Connecting to WhatsApp... Please wait.");
+      console.log("pinkymwol is connecting to your whatsapp...Please Wait !");
     } else if (connection === 'open') {
       await delay(3000);
       console.clear();
