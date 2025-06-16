@@ -139,7 +139,7 @@ setInterval(async () => {
     return;
   }
   console.clear();
-  console.log(`Bot is syncing messages... (${(countdown / 10).toFixed(2)}s left. Chats :: ${chat_count})`);
+  console.log(`Pinkymol is syncing messages... (${(countdown / 10).toFixed(2)}s left. Chats :: ${chat_count})`);
   countdown--;
   
   if (countdown < 0) {
