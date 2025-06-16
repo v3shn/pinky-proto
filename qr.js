@@ -38,7 +38,7 @@ rl.question("Login with QR code (1) or Phone Number (2)\n\n⚠️  Logging with 
     } else if (answer2 == "n") {
       console.clear();
       if (answer == "2") {
-        rl.question("Enter your phone number. Example: 905123456789\n\n >> ", async (number) => {
+        rl.question("Enter your phone number. Example: 918884850550\n\n >> ", async (number) => {
           await loginWithPhone(number);
         }); 
       } else if (answer == "1") {
